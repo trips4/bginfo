@@ -1,0 +1,31 @@
+{
+  "name": "trips4-bginfo",
+  "version": "0.1.0",
+  "author": "Dennis Triplo",
+  "summary": "",
+  "license": "Apache-2.0",
+  "source": "",
+  "dependencies": [
+
+  ],
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "windows",
+      "operatingsystemrelease": [
+        "2019",
+        "2022",
+        "10",
+        "11"
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "name": "puppet",
+      "version_requirement": ">= 7.24 < 9.0.0"
+    }
+  ],
+  "pdk-version": "3.5.0",
+  "template-url": "pdk-default#3.5.0",
+  "template-ref": "tags/3.5.0-0-ged6c77a"
+}
