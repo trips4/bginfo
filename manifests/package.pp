@@ -8,6 +8,6 @@ class bginfo::package {
   file { 'BGInfo64.exe':
     ensure => 'file',
     path   => 'C:/Windows/BGInfo64.exe',
-    source => 'puppet:///modules/bginfo/BGInfo64.exe',
+    source => 'puppet:///modules/bginfo/files/BGInfo64.exe',
   }
 }
