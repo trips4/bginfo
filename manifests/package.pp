@@ -5,8 +5,13 @@
 # @example
 #   include bginfo::package
 class bginfo::package {
-  file { 'C:/Windows/BGInfo64.exe':
-    ensure => file,
-    source => 'puppet:///modules/bginfo/BGInfo64.exe',
+  file { 'c:/BGInfo':
+    ensure => directory,
+  }
+
+  file { 'C:/BGInfo/BGInfo64.exe':
+    ensure  => file,
+    source  => 'puppet:///modules/bginfo/BGInfo64.exe',
+    require => File['c:/BGInfo'],
   }
 }
