@@ -1,5 +1,5 @@
 ---
-displayed_facts:
+bginfo::displayed_facts:
   - trusted.certname
   - os.family
   - os.release.major
