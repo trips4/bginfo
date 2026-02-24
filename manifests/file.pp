@@ -1,6 +1,4 @@
-class bginfo::file (
-  Array[String] $displayed_facts
-) {
+class bginfo::file {
   $bginfo_dir = 'c:/BGInfo'
   $bginfo_bgi = "${bginfo_dir}/PuppetFacts.bgi"
   $bginfo_dat = "${bginfo_dir}/PuppetBGInfo.dat"

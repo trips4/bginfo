@@ -4,7 +4,9 @@
 #
 # @example
 #   include bginfo
-class bginfo {
+class bginfo (
+  Array[String] $displayed_facts
+) {
   contain bginfo::file
   contain bginfo::package
 
