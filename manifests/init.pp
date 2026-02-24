@@ -5,4 +5,5 @@
 # @example
 #   include bginfo
 class bginfo {
+  include bginfo::package
 }
