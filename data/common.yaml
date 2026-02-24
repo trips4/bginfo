@@ -1,6 +1,3 @@
 ---
 bginfo::displayed_facts:
-  - trusted.certname
   - os.family
-  - os.release.major
-  - trusted.extensions.pp_role
