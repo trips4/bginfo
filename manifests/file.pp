@@ -16,7 +16,7 @@ class bginfo::file {
     require => File[$bginfo_dir],
   }
 
-  $displayed_facts.each |String $fact| {
+  $bginfo::displayed_facts.each |String $fact| {
     file_line { "BGInfo Task ${fact}":
       ensure => present,
       path   => $bginfo_dat,
