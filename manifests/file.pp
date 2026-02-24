@@ -18,6 +18,6 @@ class bginfo::file {
   file_line { 'BGInfo Task':
     ensure => present,
     path   => $bginfo_dat,
-    line   => "OS Family: ${facts['os.family']}",
+    line   => "OS Family: ${facts['os']['family']}",
   }
 }
