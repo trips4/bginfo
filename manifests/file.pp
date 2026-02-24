@@ -19,17 +19,13 @@ class bginfo::file {
   }
 
   $bginfo::displayed_facts.each |String $fact| {
+    $fact_parts = $fact.split('.')
+    $fact_path  = $fact_parts.map |$part| { "['${part}']" }.join('')
+
     file_line { "BGInfo Task ${fact}":
       ensure => present,
       path   => $bginfo_dat,
-      line   => "${fact}: ${facts[$fact.split('.')]}", # Split fact name by '.' to access nested facts
+      line   => "${fact_path}: ${facts.dig($fact_parts)}",
     }
-    #notify { "Added ${facts[$fact.split('.')]} to BGInfo dat file": }
   }
-
-  # file_line { 'BGInfo Task':
-  #   ensure => present,
-  #   path   => $bginfo_dat,
-  #   line   => "OS Family: ${facts['os']['family']}",
-  # }
 }
