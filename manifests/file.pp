@@ -24,7 +24,7 @@ class bginfo::file {
       path   => $bginfo_dat,
       line   => "${fact}: ${facts[$fact.split('.')]}", # Split fact name by '.' to access nested facts
     }
-    notify { "Added ${facts[$fact.split('.')]} to BGInfo dat file": }
+    #notify { "Added ${facts[$fact.split('.')]} to BGInfo dat file": }
   }
 
   # file_line { 'BGInfo Task':
