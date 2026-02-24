@@ -15,6 +15,8 @@ class bginfo::file {
     source  => 'puppet:///modules/bginfo/PuppetFacts.bgi',
     require => File[$bginfo_dir],
   }
+  notify { "BGINFO Displayed Facts: ${bginfo::displayed_facts}":
+  }
 
   $bginfo::displayed_facts.each |String $fact| {
     file_line { "BGInfo Task ${fact}":
