@@ -5,5 +5,9 @@
 # @example
 #   include bginfo
 class bginfo {
-  include bginfo::package
+  contain bginfo::file
+  contain bginfo::package
+
+  Class['bginfo::file']
+  -> Class['bginfo::package']
 }
