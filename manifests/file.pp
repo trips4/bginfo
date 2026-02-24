@@ -17,6 +17,8 @@ class bginfo::file {
   }
 
   $bginfo::displayed_facts.each |String $fact| {
+    notify { "The Fact to Process = ${fact}":
+    }
     $fact_parts = $fact.split('.')
     notify { "Var fact_parts = ${fact_parts}":
     }
