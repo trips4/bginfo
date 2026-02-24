@@ -1,14 +1,23 @@
 class bginfo::file {
-  file { 'c:/BGInfo':
+  $bginfo_dir = 'c:/BGInfo'
+  $bginfo_bgi = "${bginfo_dir}/PuppetFacts.bgi"
+  $bginfo_dat = "${bginfo_dir}/PuppetBGInfo.dat"
+
+  file { $bginfo_dir:
     ensure => directory,
   }
-  file { 'C:/BGInfo/PuppetBGInfo.dat':
+  file { $bginfo_dat:
     ensure  => file,
-    require => File['c:/BGInfo'],
+    require => File[$bginfo_dir],
   }
-  file { 'C:/BGInfo/PuppetFacts.bgi':
+  file { $bginfo_bgi:
     ensure  => file,
     source  => 'puppet:///modules/bginfo/PuppetFacts.bgi',
-    require => File['c:/BGInfo'],
+    require => File[$bginfo_dir],
+  }
+  file_line { 'BGInfo Task':
+    ensure => present,
+    path   => $bginfo_dat,
+    line   => "OS Family: ${facts['os.family']}",
   }
 }
