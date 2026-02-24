@@ -15,23 +15,22 @@ class bginfo::file {
     source  => 'puppet:///modules/bginfo/PuppetFacts.bgi',
     require => File[$bginfo_dir],
   }
-}
 
-$bginfo::displayed_facts.each |String $fact| {
-  $fact_parts = $fact.split('.')
-  notify { "Var fact_parts = ${fact_parts}":
+  $bginfo::displayed_facts.each |String $fact| {
+    $fact_parts = $fact.split('.')
+    notify { "Var fact_parts = ${fact_parts}":
+    }
+    # $fact_path  = $fact_parts.map |$part| { "['${part}']" }.join('.')
+    # notify { "Fact path for ${fact}: ${fact_path}":
+    # }
+    # $fact_value = $facts.dig(*$fact_parts)
+    # notify { "Fact value for ${fact}: ${fact_value}":
+    # }
+
+    # file_line { "BGInfo Task ${fact}":
+    #   ensure => present,
+    #   path   => $bginfo_dat,
+    #   line   => "${fact_path}: ${fact_value}",
+    # }
   }
-  # $fact_path  = $fact_parts.map |$part| { "['${part}']" }.join('.')
-  # notify { "Fact path for ${fact}: ${fact_path}":
-  # }
-  # $fact_value = $facts.dig(*$fact_parts)
-  # notify { "Fact value for ${fact}: ${fact_value}":
-  # }
-
-  # file_line { "BGInfo Task ${fact}":
-  #   ensure => present,
-  #   path   => $bginfo_dat,
-  #   line   => "${fact_path}: ${fact_value}",
-  # }
-}
 }
