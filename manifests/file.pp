@@ -20,12 +20,13 @@ class bginfo::file {
 
   $bginfo::displayed_facts.each |String $fact| {
     $fact_parts = $fact.split('.')
-    $fact_path  = $fact_parts.map |$part| { "['${part}']" }.join('')
+    $fact_path  = $fact_parts.map |$part| { "['${part}']" }.join('.')
+    $fact_value = $facts.dig(*$fact_parts)
 
     file_line { "BGInfo Task ${fact}":
       ensure => present,
       path   => $bginfo_dat,
-      line   => "${fact_path}: ${facts.dig($fact_parts)}",
+      line   => "${fact_path}: ${fact_value}",
     }
   }
 }
