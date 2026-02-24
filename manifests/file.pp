@@ -22,8 +22,6 @@ class bginfo::file {
     $fact_parts = $fact.split('.')
     notify { "Processing fact: ${fact} with parts ${fact_parts}":
     }
-    notify { "Fact path for ${fact}: ${fact_path}":
-    }
     $fact_path  = $fact_parts.map |$part| { "['${part}']" }.join('.')
     notify { "Fact path for ${fact}: ${fact_path}":
     }
