@@ -1,3 +1,4 @@
+<% $max_key_len = $bginfo::displayed_facts.reduce(0) |$m, $k| { max($m, $k.length) } -%>
 <% $bginfo::displayed_facts.each |$element| { -%>
   <%
     $fact_parts = $element.split('[.]')
@@ -8,5 +9,5 @@
       $fact_value = dig($facts, *$fact_parts)
     }
   -%>
-<%= $element %>:            <%= $fact_value %>
+<%= sprintf("%-*s\t%s", $max_key_len + 1, "${element}:", $fact_value) %>
 <% } -%>
