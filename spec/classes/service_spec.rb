@@ -2,13 +2,11 @@
 
 require 'spec_helper'
 
-describe 'bginfo::file' do
+describe 'bginfo::service' do
   on_supported_os.each do |os, os_facts|
     context "on #{os}" do
       let(:facts) { os_facts }
-      let(:pre_condition) do
-        "class { 'bginfo': displayed_facts => ['trusted.extensions.pp_role', 'os.family'] }"
-      end
+
       it { is_expected.to compile.with_all_deps }
     end
   end

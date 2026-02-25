@@ -6,8 +6,13 @@
 #   include bginfo::package
 class bginfo::package {
   file { 'C:/BGInfo/BGInfo64.exe':
-    ensure  => file,
-    source  => 'puppet:///modules/bginfo/BGInfo64.exe',
-    require => File['c:/BGInfo'],
+    ensure => file,
+    source => 'puppet:///modules/bginfo/BGInfo64.exe',
+  }
+  registry_value { 'BGInfo Auto Start':
+    ensure => present,
+    path   => 'HKLM\Software\Microsoft\Windows\CurrentVersion\Run',
+    type   => string,
+    data   => 'c:\BGInfo\Bginfo.exe c:\BGInfo\PuppetFacts.bgi /timer:0 /silent /nolicprompt',
   }
 }

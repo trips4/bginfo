@@ -1,5 +1,4 @@
 class bginfo::file {
-
   $bgi_cfg_file = 'PuppetFacts.bgi'
   $bgi_dat_file = 'PuppetBGInfo.dat'
   $bgi_dir      = 'BGInfo'
