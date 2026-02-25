@@ -2,5 +2,7 @@
 
 <% $bginfo::displayed_facts.each |$element| { -%>
 
-Array item: <%= $element %>
+<% $fact_parts = $element.split('[.]') -%>
+
+Array item: <%= $fact_parts[1] %>
 <% } -%>
