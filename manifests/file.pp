@@ -19,7 +19,7 @@ class bginfo::file {
   $bginfo::displayed_facts.each |String $fact| {
     notify { "The Fact to Process = ${fact}":
     }
-    $fact_parts = $fact.split('.').map |$part| { [${part}] }.join('.')
+    $fact_parts = $fact.split('.')
     notify { "Var fact_parts = ${fact_parts}":
     }
     # $fact_path  = $fact_parts.map |$part| { "['${part}']" }.join('.')
