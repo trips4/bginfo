@@ -8,5 +8,5 @@
       $fact_value = dig($facts, *$fact_parts)
     }
   -%>
-Array item: <%= $fact_value %>
+<%= $fact_parts %>: <%= $fact_value %>
 <% } -%>
