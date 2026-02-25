@@ -25,7 +25,7 @@ class bginfo::file {
     if $fact_parts[0] == 'trusted' {
       $trusted_parts = $fact_parts.slice(1)
       $fact_value    = dig($trusted, *$trusted_parts)
-      notify { 'This was a trusted': }
+      notify { "This was trusted parts ${trusted_parts}": }
     } else {
       $fact_value = dig($facts, *$fact_parts)
     }
