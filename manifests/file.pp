@@ -20,11 +20,10 @@ class bginfo::file {
     $fact_parts = $fact.split('[.]')
     $fact_value = dig($facts, *$fact_parts)
 
-
     file_line { "BGInfo Task ${fact_parts}":
       ensure => present,
       path   => $bginfo_dat,
-      line   => "${fact_parts}: ${fact_value}",
+      line   => "${fact}: ${fact_value}",
     }
   }
 }
