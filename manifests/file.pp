@@ -23,7 +23,7 @@ class bginfo::file {
   $bginfo::displayed_facts.each |String $fact| {
     $fact_parts = $fact.split('[.]')
     if $fact_parts[0] == 'trusted' {
-      $trusted_parts = $fact_parts.slice(1, $fact_parts.length)
+      $trusted_parts = $fact_parts.slice(1)
       $fact_value    = dig($trusted, *$trusted_parts)
     } else {
       $fact_value = dig($facts, *$fact_parts)
