@@ -1,0 +1,7 @@
+<% | Array[String] $the_facts | -%>
+
+<% if $the_facts { -%>
+<% $the_facts.each |$element| { -%>
+Array item: <%= $element %>
+<% } -%>
+<% } -%>

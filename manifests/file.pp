@@ -36,4 +36,9 @@ class bginfo::file {
       line   => "${fact}: ${fact_value}",
     }
   }
+  file { "${bgi_path}${bgi_dir}/test.txt":
+    ensure  => file,
+    source  => epp('bginfo/bginfo.epp', { 'the_facts' => $bginfo::displayed_facts }),
+    require => File["${bgi_path}${bgi_dir}"],
+  }
 }
