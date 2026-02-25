@@ -27,7 +27,7 @@ class bginfo::file {
 
     file_line { "BGInfo Task ${fact_parts}":
       ensure => present,
-      path   => "${bgi_path}${bgi_dat_file}",
+      path   => "${bgi_path}${bgi_dir}/${bgi_dat_file}",
       line   => "${fact}: ${fact_value}",
     }
   }
