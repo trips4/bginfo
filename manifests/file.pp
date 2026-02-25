@@ -1,7 +1,7 @@
 class bginfo::file {
-  $bginfo_dir = 'c:/BGInfo'
-  $bginfo_config = "${bginfo_dir}/PuppetFacts.bgi"
-  $bginfo_dat = "${bginfo_dir}/PuppetBGInfo.dat"
+  # $bginfo_dir = 'c:/BGInfo'
+  # $bginfo_config = "${bginfo_dir}/PuppetFacts.bgi"
+  # $bginfo_dat = "${bginfo_dir}/PuppetBGInfo.dat"
 
   $bgi_cfg_file = 'PuppetFacts.bgi'
   $bgi_dat_file = 'PuppetBGInfo.dat'
@@ -15,7 +15,7 @@ class bginfo::file {
     ensure  => file,
     require => File["${bgi_path}${bgi_dir}"],
   }
-  file { "${bgi_path}${bginfo_config}":
+  file { "${bgi_path}${bgi_cfg_file}":
     ensure  => file,
     source  => 'puppet:///modules/bginfo/PuppetFacts.bgi',
     require => File["${bgi_path}${bgi_dir}"],
