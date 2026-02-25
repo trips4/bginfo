@@ -1,3 +1,4 @@
 ---
 bginfo::displayed_facts:
   - os.family
+  - os.release.major
