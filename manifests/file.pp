@@ -9,11 +9,11 @@ class bginfo::file {
   file { "${bgi_path}${bgi_dir}":
     ensure => directory,
   }
-  # Ensure the .dat and .bgi files exist, with the .bgi file sourced from the module.
-  file { "${bgi_path}${bgi_dir}/${bgi_dat_file}":
-    ensure  => file,
-    require => File["${bgi_path}${bgi_dir}"],
-  }
+  # # Ensure the .dat and .bgi files exist, with the .bgi file sourced from the module.
+  # file { "${bgi_path}${bgi_dir}/${bgi_dat_file}":
+  #   ensure  => file,
+  #   require => File["${bgi_path}${bgi_dir}"],
+  # }
   file { "${bgi_path}${bgi_dir}/${bgi_cfg_file}":
     ensure  => file,
     source  => 'puppet:///modules/bginfo/PuppetFacts.bgi',
