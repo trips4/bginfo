@@ -9,10 +9,9 @@ class bginfo::package {
     ensure => file,
     source => 'puppet:///modules/bginfo/BGInfo64.exe',
   }
-  registry_value { 'BGInfo Auto Start':
+  registry_value { 'HKLM\Software\Microsoft\Windows\CurrentVersion\Run':
     ensure => present,
     path   => 'HKLM\Software\Microsoft\Windows\CurrentVersion\Run',
-    name   => 'BGInfo',
     type   => string,
     data   => 'c:\BGInfo\Bginfo.exe c:\BGInfo\PuppetFacts.bgi /timer:0 /silent /nolicprompt',
   }
