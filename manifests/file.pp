@@ -1,19 +1,24 @@
 class bginfo::file {
   $bginfo_dir = 'c:/BGInfo'
-  $bginfo_bgi = "${bginfo_dir}/PuppetFacts.bgi"
+  $bginfo_config = "${bginfo_dir}/PuppetFacts.bgi"
   $bginfo_dat = "${bginfo_dir}/PuppetBGInfo.dat"
 
-  file { $bginfo_dir:
+  $bgi_cfg_file = 'PuppetFacts.bgi'
+  $bgi_dat_file = 'PuppetBGInfo.dat'
+  $bgi_dir      = 'BGInfo'
+  $bgi_path     = 'c:/'
+
+  file { "${bgi_path}${bgi_dir}":
     ensure => directory,
   }
-  file { $bginfo_dat:
+  file { "${bgi_path}${bgi_dat_file}":
     ensure  => file,
-    require => File[$bginfo_dir],
+    require => File["${bgi_path}${bgi_dir}"],
   }
-  file { $bginfo_bgi:
+  file { "${bgi_path}${bginfo_config}":
     ensure  => file,
     source  => 'puppet:///modules/bginfo/PuppetFacts.bgi',
-    require => File[$bginfo_dir],
+    require => File["${bgi_path}${bgi_dir}"],
   }
 
   $bginfo::displayed_facts.each |String $fact| {
@@ -22,7 +27,7 @@ class bginfo::file {
 
     file_line { "BGInfo Task ${fact_parts}":
       ensure => present,
-      path   => $bginfo_dat,
+      path   => "${bgi_path}${bgi_dat_file}",
       line   => "${fact}: ${fact_value}",
     }
   }
