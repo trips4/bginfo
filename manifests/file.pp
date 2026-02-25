@@ -20,9 +20,9 @@ class bginfo::file {
     $fact_parts = $fact.split('[.]')
     notify { "Var fact_parts = ${fact_parts}": }
     $fact_path  = $fact_parts.map |$part| { "['${part}']" }.join('.')
-    notify { "Fact path for ${fact}: ${fact_path}": }
+    notify { "fact_path is ${fact_path}": }
 
-    
+
     # $fact_value = $facts.dig(*$fact_parts)
     # notify { "Fact value for ${fact}: ${fact_value}":
     # }
