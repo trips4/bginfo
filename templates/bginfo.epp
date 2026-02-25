@@ -8,6 +8,5 @@
     } else {
       $fact_value = dig($facts, *$fact_parts)
     }
-  -%>
-<%= $fact_value %>
+  -%><%=$fact_value %>
 <% } -%>
