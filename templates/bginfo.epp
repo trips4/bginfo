@@ -10,5 +10,6 @@
     }
   -%>
 <%=
-$fact_value -%>
+$fact_value
+%>
 <% } -%>
