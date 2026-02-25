@@ -18,19 +18,14 @@ class bginfo::file {
 
   $bginfo::displayed_facts.each |String $fact| {
     $fact_parts = $fact.split('[.]')
-    notify { "Var fact_parts = ${fact_parts}": }
     $fact_path  = $fact_parts.map |$part| { "['${part}']" }.join('.')
-    notify { "fact_path is ${fact_path}": }
+    $fact_value = $facts[$fact_path]
+    notify { "Fact Vaue is ${fact_value}": }
 
-
-    # $fact_value = $facts.dig(*$fact_parts)
-    # notify { "Fact value for ${fact}: ${fact_value}":
-    # }
-
-    # file_line { "BGInfo Task ${fact}":
-    #   ensure => present,
-    #   path   => $bginfo_dat,
-    #   line   => "${fact_path}: ${fact_value}",
-    # }
+    file_line { "BGInfo Task ${fact_path}":
+      ensure => present,
+      path   => $bginfo_dat,
+      line   => "${fact_path}: ${fact_value}",
+    }
   }
 }
