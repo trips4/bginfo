@@ -5,6 +5,6 @@
       $trusted_parts = $fact_parts[1, $fact_parts.length - 1]
       $fact_value    = dig($trusted, *$trusted_parts)
     }
-    Array item: <%= $fact_value %>
   -%>
+Array item: <%= $fact_value %>
 <% } -%>
