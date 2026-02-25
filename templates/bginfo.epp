@@ -2,7 +2,11 @@
 
 <% $bginfo::displayed_facts.each |$element| { -%>
 
-<% $fact_parts = $element.split('[.]') -%>
-
+<% 
+$fact_parts = $element.split('[.]')
+if $fact_parts[0] == 'trusted' {
+  $trusted_parts = $fact_parts[1, $fact_parts.length - 1]
+  $fact_value    = dig($trusted, *$trusted_parts)
+-%>
 Array item: <%= $fact_parts[1] %>
 <% } -%>
