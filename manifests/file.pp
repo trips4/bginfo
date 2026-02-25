@@ -22,9 +22,14 @@ class bginfo::file {
   # Populate the .dat file with the specified facts and their values.
   $bginfo::displayed_facts.each |String $fact| {
     $fact_parts = $fact.split('[.]')
-    $fact_value = dig($facts, *$fact_parts)
+    if $fact_parts[0] == 'trusted' {
+      $trusted_parts = $fact_parts.slice(1, $fact_parts.length)
+      $fact_value    = dig($trusted, *$trusted_parts)
+    } else {
+      $fact_value = dig($facts, *$fact_parts)
+    }
 
-    file_line { "BGInfo Task ${fact_parts}":
+    file_line { "BGInfo Task ${fact}":
       ensure => present,
       path   => "${bgi_path}${bgi_dir}/${bgi_dat_file}",
       line   => "${fact}: ${fact_value}",
