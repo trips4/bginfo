@@ -13,6 +13,6 @@ class bginfo::package {
     ensure => present,
     path   => 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run\BGInfo',
     type   => string,
-    data   => 'hello',
+    data   => 'c:\bginfo\BGInfo64.exe C:\BGInfo\PuppetFacts.bgi /SILENT /NOLICPROMPT',
   }
 }
