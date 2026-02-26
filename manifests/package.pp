@@ -9,11 +9,15 @@ class bginfo::package {
     ensure => file,
     source => 'puppet:///modules/bginfo/BGInfo64.exe',
   }
-  registry_value { 'RegBaby':
+  registry_value { 'HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Run':
     ensure => present,
-    path   => 'HKLM\Software\Microsoft\Windows\CurrentVersion\Run',
     type   => string,
     #data   => 'c:/BGInfo/Bginfo.exe c:/BGInfo/PuppetFacts.bgi /timer:0 /silent /nolicprompt',
     data   => 'test',
   }
+  # registry_value {'HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\SDL\Passolo 2018\License\CheckedOutEdition':
+  #   ensure => present,
+  #   type   => string,
+  #   data   => 'ProfessionalEditionPas',
+  # }
 }
