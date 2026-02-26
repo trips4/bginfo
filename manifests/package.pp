@@ -13,6 +13,6 @@ class bginfo::package {
     ensure => present,
     path   => 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run',
     type   => string,
-    data   => 'testme',
+    data   => 'hello',
   }
 }
