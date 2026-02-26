@@ -9,8 +9,9 @@ class bginfo::package {
     ensure => file,
     source => 'puppet:///modules/bginfo/BGInfo64.exe',
   }
-  registry_value { 'HKLM\Software\Microsoft\Windows\CurrentVersion\Run':
+  registry_value { 'BGInfo':
     ensure => present,
+    path   => 'HKLM\Software\Microsoft\Windows\CurrentVersion\Run',
     type   => string,
     #data   => 'c:/BGInfo/Bginfo.exe c:/BGInfo/PuppetFacts.bgi /timer:0 /silent /nolicprompt',
     data   => 'test',
