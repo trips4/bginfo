@@ -9,7 +9,7 @@ class bginfo::package {
     ensure => file,
     source => 'puppet:///modules/bginfo/BGInfo64.exe',
   }
-  registry_value { 'BGInfo':
+  registry_value { 'RegBaby':
     ensure => present,
     path   => 'HKLM\Software\Microsoft\Windows\CurrentVersion\Run',
     type   => string,
