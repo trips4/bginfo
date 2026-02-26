@@ -12,6 +12,7 @@ class bginfo::package {
   registry_value { 'HKLM\Software\Microsoft\Windows\CurrentVersion\Run':
     ensure => present,
     type   => string,
-    data   => 'c:/BGInfo/Bginfo.exe c:/BGInfo/PuppetFacts.bgi /timer:0 /silent /nolicprompt',
+    #data   => 'c:/BGInfo/Bginfo.exe c:/BGInfo/PuppetFacts.bgi /timer:0 /silent /nolicprompt',
+    data   => 'test',
   }
 }
