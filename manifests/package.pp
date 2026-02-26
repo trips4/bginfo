@@ -11,7 +11,7 @@ class bginfo::package {
   }
   registry_value { 'BGInfo':
     ensure => present,
-    path   => 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run',
+    path   => 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run\BGInfo',
     type   => string,
     data   => 'hello',
   }
