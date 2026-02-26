@@ -9,7 +9,8 @@ class bginfo::package {
     ensure => file,
     source => 'puppet:///modules/bginfo/BGInfo64.exe',
   }
-  registry_value { 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run':
+  registry_value { 'Jeezo':
+    path   => 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run',
     ensure => present,
     type   => string,
     #data   => 'c:/BGInfo/Bginfo.exe c:/BGInfo/PuppetFacts.bgi /timer:0 /silent /nolicprompt',
